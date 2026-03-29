@@ -12,7 +12,7 @@ document.getElementById('audioFile').addEventListener('change', function(getouth
             document.getElementById('title').textContent = title;
             document.getElementById('artist').textContent = artist;
             document.getElementById('album').textContent = album;
-            document.title = `正在播放：${title} - ${artist}` || '音乐播放器';
+            document.title = `${title}` || '音乐播放器';
             if(picture){
                 const blob = new Blob([new Uint8Array(picture.data)], {
                 type: picture.format
