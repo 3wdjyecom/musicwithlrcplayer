@@ -3,23 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/jsmediatags/dist/jsmediatags.min.js"></script>
     <style>
-       
+        #currentlrc {
+            width: 100%;
+            text-align: center; /* 歌词文字也居中 */
+            padding: 20px;
+            text-shadow: 0 0 5px rgba(234, 14, 14, 0.8); 
+        }
+        #currentlrc2 {
+            width: 100%;
+            text-align: center; /* 歌词文字也居中 */
+            padding: 20px;
+            text-shadow: 0 0 5px rgba(14, 146, 234, 0.8); 
+        }
+        #coverImg {
+            width: 200px;   
+            height: 200px;  
+            object-fit: cover;
+            margin: 10px 0;
+            
+        }
+        /* 让图片和文字 并排显示 */
+        .imgAndLrcBox {
+            display: flex;      /* 并排关键 */
+            align-items: flex-start; /* 顶部对齐 */
+            gap: 20px;          /* 图片和文字之间的距离 */
+            margin: 15px 0;
+        }
 
-/* 你的歌词 div */
-#currentlrc {
-    width: 100%;
-    text-align: center; /* 歌词文字也居中 */
-    padding: 20px;
-    text-shadow: 0 0 5px rgba(234, 14, 14, 0.8); 
-}
-#currentlrc2 {
-    width: 100%;
-    text-align: center; /* 歌词文字也居中 */
-    padding: 20px;
-    text-shadow: 0 0 5px rgba(14, 146, 234, 0.8); 
-}
+/* 封面图大小 */
+        #coverImg {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+/* 文字区域自动占满剩余空间 */
+        .textContainer {
+            flex: 1;
+        }
     </style>
 </head>
 <body>
@@ -33,13 +57,22 @@
     <div>选择字体颜色</div>
     <input type="color" id="fontColor"><br>
     <input type="color" id="tfontColor"><br>
+    <div class="imgAndLrcBox">
+        <img id="coverImg">
+        <div class="textContainer">
+            <div id="title" style="flex: 1;text-align: center;font-size: large;">歌曲标题</div>
+            <div id="artist" style="flex: 1;text-align: center;">艺术家</div>
+            <div id="album" style="flex: 1;text-align: center;font-size: small;">专辑</div>
+            <div id = "currentlrc"></div>
+            <div id = "currentlrc2"></div>
+        </div>
+    </div>
+    <br>
     <audio id="audio" controls></audio>
-    <div id = "currentlrc"></div>
-    <div id = "currentlrc2"></div>
-    <div id="lrcContent">歌词是</div>
-    <div id="lrcContent2">翻译是</div>
-    
-    
+    <button onclick="downloadLrc()">下载歌词</button>
+    <div id="lrcContent"></div>
+    <div>翻译</div>
+    <div id="lrcContent2"></div>  
 <script src="./lrcabout.js"></script>
 <script src="./musicplay.js"></script>
 <script>
@@ -52,6 +85,9 @@
         document.getElementById('currentlrc2').style.textShadow = `0 0 5px ${color}`;
     });
 </script>
-
+<script src="./IDV3getouthere.js"></script>
+<script>
+    
+</script>
 </body>
 </html>
