@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+
+/* 你的歌词 div */
+#currentlrc {
+    width: 100%;
+    text-align: center; /* 歌词文字也居中 */
+    padding: 20px;
+    text-shadow: 0 0 5px rgba(234, 14, 14, 0.8); 
+}
+#currentlrc2 {
+    width: 100%;
+    text-align: center; /* 歌词文字也居中 */
+    padding: 20px;
+    text-shadow: 0 0 5px rgba(14, 146, 234, 0.8); 
+}
+    </style>
+</head>
+<body>
+    <h1>HTML music and lrc player</h1>
+    <div>选择mp3文件</div>
+    <input type="file" id="audioFile" value="选择歌曲文件">
+    <div>选择lrc文件</div>
+    <input type="file" id="lrcfile" value="选择歌词文件">
+    <div>选择lrc翻译文件</div>
+    <input type="file" id="trans" value="选择翻译文件"><br>
+    <div>选择字体颜色</div>
+    <input type="color" id="fontColor"><br>
+    <input type="color" id="tfontColor"><br>
+    <audio id="audio" controls></audio>
+    <div id = "currentlrc"></div>
+    <div id = "currentlrc2"></div>
+    <div id="lrcContent">歌词是</div>
+    <div id="lrcContent2">翻译是</div>
+    
+    
+<script src="./lrcabout.js"></script>
+<script src="./musicplay.js"></script>
+<script>
+    document.getElementById('fontColor').addEventListener('input', function() {
+        var color = this.value;
+        document.getElementById('currentlrc').style.textShadow = `0 0 5px ${color}`;
+    });
+    document.getElementById('tfontColor').addEventListener('input', function() {
+        var color = this.value;
+        document.getElementById('currentlrc2').style.textShadow = `0 0 5px ${color}`;
+    });
+</script>
+
+</body>
+</html>
