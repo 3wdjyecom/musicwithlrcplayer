@@ -1,0 +1,47 @@
+#currentlrc {
+            width: 100%;
+            text-align: center; /* 歌词文字也居中 */
+            padding: 20px;
+            text-shadow: 0 0 5px rgba(234, 14, 14, 0.8); 
+        }
+        #currentlrc2 {
+            width: 100%;
+            text-align: center; /* 歌词文字也居中 */
+            padding: 20px;
+            text-shadow: 0 0 5px rgba(14, 146, 234, 0.8); 
+        }
+        #coverImg {
+            width: 200px;   
+            height: 200px;  
+            object-fit: cover;
+            margin: 10px 0;
+            
+        }
+        /* 让图片和文字 并排显示 */
+        .imgAndLrcBox {
+            display: flex;      /* 并排关键 */
+            align-items: flex-start; /* 顶部对齐 */
+            gap: 20px;          /* 图片和文字之间的距离 */
+            margin: 15px 0;
+        }
+
+/* 封面图大小 */
+        #coverImg {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+/* 文字区域自动占满剩余空间 */
+        .textContainer {
+            flex: 1;
+        }
+        /* 1. 隐藏原生复选框 */
+        
+        /* 2. 文字半透明 */
+body {
+  color: white;
+  text-shadow: 0 0 8px rgba(0,0,0,0.8),
+               0 0 4px rgba(0,0,0,0.8);
+}
+     

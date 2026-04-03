@@ -4,98 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <script src="https://cdn.jsdelivr.net/npm/jsmediatags/dist/jsmediatags.min.js"></script>
-    <style>
-        #currentlrc {
-            width: 100%;
-            text-align: center; /* 歌词文字也居中 */
-            padding: 20px;
-            text-shadow: 0 0 5px rgba(234, 14, 14, 0.8); 
-        }
-        #currentlrc2 {
-            width: 100%;
-            text-align: center; /* 歌词文字也居中 */
-            padding: 20px;
-            text-shadow: 0 0 5px rgba(14, 146, 234, 0.8); 
-        }
-        #coverImg {
-            width: 200px;   
-            height: 200px;  
-            object-fit: cover;
-            margin: 10px 0;
-            
-        }
-        /* 让图片和文字 并排显示 */
-        .imgAndLrcBox {
-            display: flex;      /* 并排关键 */
-            align-items: flex-start; /* 顶部对齐 */
-            gap: 20px;          /* 图片和文字之间的距离 */
-            margin: 15px 0;
-        }
-
-/* 封面图大小 */
-        #coverImg {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-        }
-
-/* 文字区域自动占满剩余空间 */
-        .textContainer {
-            flex: 1;
-        }
-        /* 1. 隐藏原生复选框 */
-    .toggle-switch input {
-      display: none;
-    }
-
-    /* 2. 滑块开关容器（背景+圆角） */
-    .toggle-switch .slider {
-      position: relative;
-      display: inline-block;
-      width: 60px;    /* 开关宽度 */
-      height: 30px;   /* 开关高度 */
-      background-color: #ccc; /* 未选中背景 */
-      border-radius: 30px;    /* 圆形圆角 */
-      cursor: pointer;
-      transition: background-color 0.3s ease; /* 切换动画 */
-    }
-
-    /* 3. 滑块按钮（小圆点） */
-    .toggle-switch .slider::before {
-      content: "";
-      position: absolute;
-      width: 26px;    /* 按钮宽度 */
-      height: 26px;   /* 按钮高度 */
-      left: 2px;      /* 未选中时位置 */
-      bottom: 2px;
-      background-color: white;
-      border-radius: 50%; /* 圆形按钮 */
-      transition: transform 0.3s ease; /* 滑动动画 */
-    }
-
-    /* 4. 选中状态样式（背景变蓝） */
-    .toggle-switch input:checked + .slider {
-      background-color: #2196F3; /* 选中背景色 */
-    }
-
-    /* 5. 选中时滑块右移 */
-    .toggle-switch input:checked + .slider::before {
-      transform: translateX(30px); /* 移动距离=开关宽度-按钮宽度 */
-    }
-
-    /* 可选：禁用状态样式 */
-    .toggle-switch input:disabled + .slider {
-      background-color: #e0e0e0;
-      cursor: not-allowed;
-    }
-    /* 定义隐藏样式类 */
-    .hidden-div {
-      display: none;
-    }
-    /* 测试用：给 div 加边框，方便看占位 */
-    
-    </style>
+    <script src="./js/somethingneeded.js"></script>
+    <link rel="stylesheet" href="./css/huakuai.css">
+    <link rel="stylesheet" href="./css/firststyle.css">
 </head>
 <body>
     <h1>HTML music and lrc player</h1>
@@ -127,54 +38,29 @@
     </div>
     <br>
     <audio id="audio" controls></audio>
-<div class="nouse-div hidden-div">
+    <div class="nouse-div hidden-div">
     <button onclick="downloadLrc()">下载歌词</button>
     <div id="lrcContent"></div>
     <div>翻译</div>
-    <div id="lrcContent2"></div>  
+    <div id="lrcContent2"></div>
+    <button onclick="openset()">设置</button>
+    
 </div>
-<script src="./lrcabout.js"></script>
-<script src="./musicplay.js"></script>
-<script>
-    document.getElementById('fontColor').addEventListener('input', function() {
-        var color = this.value;
-        document.getElementById('currentlrc').style.textShadow = `0 0 5px ${color}`;
-    });
-    document.getElementById('tfontColor').addEventListener('input', function() {
-        var color = this.value;
-        document.getElementById('currentlrc2').style.textShadow = `0 0 5px ${color}`;
-    });
-</script>
-<script src="./IDV3getouthere.js"></script>
-<script>
- const switchBtn = document.getElementById('musicSwitch');
-const statusText = document.getElementById('status');
-// ✅ 改为获取所有 hidden-div 元素（返回数组）
-const hiddenDivs = document.querySelectorAll('.hidden-div');
+<div id="setting" style="display: none;">
+        <div class="content">设置内容</div>
+        <h4>主题设置</h4>
+        <button id="SabTh" onclick="sabth()">Sabbat of the Witch</button>
+        <button id="srbk" onclick="srbk()">SAN RUN BAN KA</button>
+        <button id="notany" onclick="notany()">No theme</button><br>
+        <button onclick="document.getElementById('setting').style.display = 'none';">关闭</button>
+    </div>
+<script src="./js/lrcabout.js"></script>
+<script src="./js/musicplay.js"></script>
+<script src="./js/IDV3getouthere.js"></script>
+<script src="./js/huakuai.js"></script>
+<script src="./js/background.js"></script>
+<script src="./js/setting.js">
 
-// 同步所有隐藏div的状态
-function syncSwitchStatus() {
-  if (switchBtn.checked) {
-    statusText.textContent = '纯净模式：开启';
-    // 遍历所有 hidden-div，统一设置显示/隐藏
-    hiddenDivs.forEach(div => {
-      div.style.display = 'none'; 
-    });
-    
-  } else {
-    statusText.textContent = '纯净模式：关闭';
-    hiddenDivs.forEach(div => {
-      div.style.display = 'block'; 
-    });
-    
-  }
-}
-
-// 页面加载时同步初始状态
-syncSwitchStatus();
-
-// 开关切换时同步
-switchBtn.addEventListener('change', syncSwitchStatus);
 </script>
 </body>
 </html>

@@ -1,0 +1,46 @@
+ .toggle-switch .slider {
+        position: relative;
+        display: inline-block;
+        width: 60px;    /* 开关宽度 */
+        height: 30px;   /* 开关高度 */
+        background-color: #ccc; /* 未选中背景 */
+        border-radius: 30px;    /* 圆形圆角 */
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* 切换动画 */
+      }
+.toggle-switch input {
+            display: none;
+        }
+
+    /* 3. 滑块按钮（小圆点） */
+    .toggle-switch .slider::before {
+      content: "";
+      position: absolute;
+      width: 26px;    /* 按钮宽度 */
+      height: 26px;   /* 按钮高度 */
+      left: 2px;      /* 未选中时位置 */
+      bottom: 2px;
+      background-color: white;
+      border-radius: 50%; /* 圆形按钮 */
+      transition: transform 0.3s ease; /* 滑动动画 */
+    }
+
+    /* 4. 选中状态样式（背景变蓝） */
+    .toggle-switch input:checked + .slider {
+      background-color: #2196F3; /* 选中背景色 */
+    }
+
+    /* 5. 选中时滑块右移 */
+    .toggle-switch input:checked + .slider::before {
+      transform: translateX(30px); /* 移动距离=开关宽度-按钮宽度 */
+    }
+
+    /* 可选：禁用状态样式 */
+    .toggle-switch input:disabled + .slider {
+      background-color: #e0e0e0;
+      cursor: not-allowed;
+    }
+    /* 定义隐藏样式类 */
+    .hidden-div {
+      display: none;
+    }
