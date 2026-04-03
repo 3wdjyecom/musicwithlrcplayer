@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>公告</title>
+<style>
+  #text {
+    font-size: 20px;
+    color: #2d8cf0;
+    margin: 20px;
+  }
+  body {
+    background-color: #000000;
+  }
+</style>
+</head>
+<body>
+<h1 style="color: aliceblue;text-align: center;">公告</h1>
+  <div id="text"></div>
+  <img src="./attention.png" alt="公告图片" style="width: 300px; height: 300px; margin: 20px;float: right;">
+  <button onclick="window.location.href='./index.html'">我知道了</button>
+  <script>
+    // 要显示的文字
+    const str = "欢迎使用本音乐播放器，本次提供了Sabbat of The Witch和Senren  Banka两个主题，挑选了一些作者喜爱的CG，接下来会更新新的进度条和播放界面，包含滚动歌词和封面CD两个样式。对了，这次还增加了公告栏界面";
+    const dom = document.getElementById("text");
+    let index = 0;
+
+    // 打字函数
+    function typing() {
+      if (index < str.length) {
+        dom.innerHTML += str.charAt(index);
+        index++;
+        setTimeout(typing, 50); // 每个字间隔时间
+      }
+    }
+
+    // 启动
+    typing();
+  </script>
+</body>
+</html>
