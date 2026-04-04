@@ -5,13 +5,15 @@ var bgchange;
 SabTh.onclick = function sabth() {
     clearInterval(bgchange);
     function changeBgImage() {
-    const min = 0;
-    const max = 5;
+    const min = 1;
+    const max = 13;
     const randomImage = Math.floor(Math.random() * (max - min + 1)) + min;
     document.body.style.backgroundImage = `url('./background/SabbatOfTheWitch/0${randomImage}.jpg')`;
     document.body.style.backgroundSize = 'cover';      
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.color = 'white';
+    document.body.style.textShadow = '0 0 8px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.8)';
     };
     changeBgImage();
     let seconds = 5
@@ -33,6 +35,8 @@ srbk.onclick = function srbk() {
     document.body.style.backgroundSize = 'cover';      
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';
+    document.body.style.color = 'white';
+    document.body.style.textShadow = '0 0 8px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.8)';
     };
     changeBgImage();
     let seconds = 5
@@ -47,4 +51,6 @@ srbk.onclick = function srbk() {
 notany.onclick = function notany() {
     document.body.style.backgroundImage = 'none';
     clearInterval(bgchange);
+    document.body.style.color = '#000';
+    document.body.style.textShadow = 'none';
 }

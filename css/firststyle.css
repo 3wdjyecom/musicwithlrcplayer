@@ -1,4 +1,4 @@
-#currentlrc {
+        #currentlrc {
             width: 100%;
             text-align: center; /* 歌词文字也居中 */
             padding: 20px;
@@ -40,8 +40,9 @@
         
         /* 2. 文字半透明 */
 body {
-  color: white;
-  text-shadow: 0 0 8px rgba(0,0,0,0.8),
-               0 0 4px rgba(0,0,0,0.8);
+  
+padding-bottom: 120px; /* 比播放器高度大一点即可 */
+  margin: 0;
+  box-sizing: border-box;
 }
      

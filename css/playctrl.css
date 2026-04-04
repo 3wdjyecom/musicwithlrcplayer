@@ -1,0 +1,61 @@
+#playarer {
+  position: fixed;    /* 核心：固定定位 */
+  bottom: 0;          /* 贴在底部 */
+  left: 0;            /* 贴在左边 */
+  width: 100%;        /* 宽度铺满屏幕 */
+  background: #fff;   /* 背景色 */
+  padding: 10px;      /* 内边距 */
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* 顶部阴影 */
+  z-index: 999;       /* 保证在最上层，不被挡住 */
+  display: flex;
+  gap: 10px;
+  align-items: center; /* 垂直居中 */
+  gap: 10px; /* 子元素间距（可选，调整美观度） */
+  box-sizing: border-box; /* 关键：padding 不占用额外宽度，避免底栏溢出 */
+  background: rgba(255, 255, 255, 0.15); /* 半透明白色 */
+  backdrop-filter: blur(3px); /* 核心：毛玻璃模糊 */
+  -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
+  border-top: 1px solid rgba(255, 255, 255, 0.2); /* 细腻边框 */
+}
+
+
+/* 进度条核心样式：占满剩余宽度 */
+#progressBar {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  flex: 1; /* 核心：占满父容器剩余宽度 */
+  height: 6px;
+  accent-color: #409eff;
+  /* 移除固定 width，改用 flex:1 自适应 */
+  width: auto !important; 
+  min-width: 0; /* 兼容部分浏览器，允许进度条宽度收缩 */
+}
+
+/* 播放按钮样式优化（可选） */
+#playBtn {
+  cursor: pointer;
+  /* 固定按钮宽度，避免挤压进度条 */
+  width: 30px; 
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 4px;
+  flex-shrink: 0; /* 防止按钮被压缩 */
+}
+
+/* 时间文本样式（可选，固定宽度） */
+#currenttime, #totalTime {
+  flex-shrink: 0; /* 防止时间文本被压缩 */
+  width: 40px; /* 固定宽度，避免进度条宽度波动 */
+  text-align: center;
+  display: flex;        /* 横向排列 */
+  align-items: center;  /* 垂直居中 */
+  gap: 5px;             /* 分隔符和数字之间留小间距 */
+  white-space: nowrap;  /* 强制单行，永不换行 */
+  flex-shrink: 0;       /* 防止被挤压变形 */
+  width: auto; 
+}

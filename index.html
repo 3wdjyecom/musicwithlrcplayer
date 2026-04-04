@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,7 @@
     <script src="./js/somethingneeded.js"></script>
     <link rel="stylesheet" href="./css/huakuai.css">
     <link rel="stylesheet" href="./css/firststyle.css">
+    <link rel="stylesheet" href="./css/playctrl.css">
 </head>
 <body>
     <h1>HTML music and lrc player</h1>
@@ -38,15 +39,26 @@
         </div>
     </div>
     <br>
-    <audio id="audio" controls></audio>
+    <audio id="audio" preload="auto"></audio>
+    
+    
     <div class="nouse-div hidden-div">
+    
     <button onclick="downloadLrc()">下载歌词</button>
     <div id="lrcContent"></div>
     <div>翻译</div>
     <div id="lrcContent2"></div>
     <button onclick="openset()">设置</button>
     
+    
 </div>
+    <div id="playarer">
+        <button id="playBtn">▶</button>
+        <input type="range" id="progressBar" value="0" min="0" max="100" step="0.01">
+        <div id="currenttime">00:00</div>/<div id="totalTime">00:00</div>
+        <button onclick="silence()" id="silence1">🔊</button>
+        <input type="range" id="volumeBar" value="100" min="0" max="100" step="0.01">
+    </div>
 <div id="setting" style="display: none;">
         <div class="content">设置内容</div>
         <h4>主题设置</h4>
@@ -60,8 +72,7 @@
 <script src="./js/IDV3getouthere.js"></script>
 <script src="./js/huakuai.js"></script>
 <script src="./js/background.js"></script>
-<script src="./js/setting.js">
-
-</script>
+<script src="./js/setting.js"></script>
+<script src="./js/audioctrl.js"></script>
 </body>
 </html>
